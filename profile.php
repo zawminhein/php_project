@@ -20,8 +20,14 @@
    <div class="container" style="max-width: 800px;">
       <h1 class="h3 my-3">Profile</h1>
 
-      <?php if(file_exists("_actions/photos/profile.php")) : ?>
-         <img src="_actions/photos/profile.jpg" width="300" class="img-thumbnail">
+      <?php if(isset($_GET['error'])) : ?>
+         <div class="alert alert-warning">
+            Can't upload file
+         </div>
+      <?php endif ?>
+
+      <?php if(file_exists("_actions/photos/profile.jpg")) : ?>
+         <img src="_actions/photos/profile.jpg" width="200" class="img-thumbnail">
       <?php endif ?>
 
       <form action="_actions/upload.php" method="post" enctype="multipart/form-data"      class="input-group my-3">
