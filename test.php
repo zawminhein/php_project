@@ -8,14 +8,31 @@ use Libs\Database\MySQL;
 use Libs\Database\UsersTable;
 use Faker\Factory as Faker;
 
-Auth::check();
-HTTP::redirect();
+// $user = Auth::check();
+// print_r($user);
+// HTTP::redirect('/index.php', 'http=test');
 
-$db = new MySQL;
-$db->connect();
+// $mysql = new MySQL;
+// $db = $mysql->connect();
 
-$table = new UsersTable;
-$table->insert();
+// $result = $db->query("SELECT *FROM roles");
 
-$faker = Faker::create();
-echo $faker->name;
+// print_r($result->fetchAll());
+
+$mysql = new Mysql;
+$table = new UsersTable($mysql);
+
+$id = $table->insert([
+   "name" => "Alice",
+   "email" => "alice@gmail.com",
+   "phone" => "23890423",
+   "address" => "Some Address",
+   "password" => "password",
+]);
+
+echo $id;
+
+// $table->insert();
+
+// $faker = Faker::create();
+// echo $faker->name;
