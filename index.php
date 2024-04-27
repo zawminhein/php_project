@@ -16,6 +16,12 @@
          </div>
       <?php endif ?>
 
+      <?php if(isset($_GET['register'])) : ?>
+         <div class="alert alert-info">
+            Rgister success, Please login
+         </div>
+      <?php endif ?>
+
       <form action="_actions/login.php" method="post" class="mb-3">
          <input type="text" name="email" class="form-control" placeholder="Email" required>
          <input type="password" name="password" class="mb-2 form-control" placeholder="Password" required>

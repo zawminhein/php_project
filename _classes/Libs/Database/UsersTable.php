@@ -12,6 +12,15 @@ class UsersTable
       $this->db = $mysql->connect();
    }
 
+   public function find($email, $password)
+   {
+      $statement = $this->db->prepare("SELECT * FROM users WHERE email=:email AND password=:password");
+      $statement->execute(['email' => $email, 'password' => $password]);
+      $user = $statement->fetch();
+
+      return $user;
+   }
+
    public function insert($data)
    {
       try {
@@ -28,5 +37,13 @@ class UsersTable
          echo $e->getMessage();
          exit();
       }
+   }
+
+   public function updatePhoto($id, $photo)
+   {
+      $statement = $this->db->prepare("UPDATE users SET photo=:photo WHERE id=:id");
+      $statement->execute(['id' => $id, 'photo' => $photo]);
+
+      return $statement->rowCount();
    }
 }

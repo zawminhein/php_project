@@ -22,17 +22,19 @@ use Faker\Factory as Faker;
 $mysql = new Mysql;
 $table = new UsersTable($mysql);
 
-$id = $table->insert([
-   "name" => "Alice",
-   "email" => "alice@gmail.com",
-   "phone" => "23890423",
-   "address" => "Some Address",
-   "password" => "password",
-]);
+// $id = $table->insert([
+//    "name" => "Babe",
+//    "email" => "babe@gmail.com",
+//    "phone" => "238904233",
+//    "address" => "Some Address",
+//    "password" => "password",
+// ]);
 
-echo $id;
+// echo $id;
 
-// $table->insert();
+$user = $table->find("alice@gmail.com", "password");
+
+print_r($user);
 
 // $faker = Faker::create();
 // echo $faker->name;
