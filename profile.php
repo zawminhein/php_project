@@ -54,6 +54,7 @@
          <li class="list-group-item">Address: <?= $user->address ?></li>
       </ul>
       <a href="_actions/logout.php" class="text-danger">Logout</a>
+      <a href="admin.php" class="text-primary">Admin</a>
    </div>
 </body>
 </html>
